@@ -1,4 +1,4 @@
-#Run those commands:
+# Run those commands
 
 cd score_project
 
