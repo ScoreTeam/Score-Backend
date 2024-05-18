@@ -1,4 +1,4 @@
-# Run these commands
+# Enter these commands before the first run
 
 cd score_project
 
