@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Employee;
+use App\Models\Activity;
 
 class EmployeeController extends Controller
 {
@@ -92,4 +94,53 @@ class EmployeeController extends Controller
             ], 500);
         }
     }
+    public function calculatePoints(Request $request, $employee_id)
+    {
+        $request->validate([
+            'date' => 'required|date'
+        ]);
+
+        $date = $request->input('date');
+
+        // Fetch activities for the given employee and date
+        $activities = Activity::where('employee_id', $employee_id)
+            ->whereDate('timing', $date)
+            ->with('service')
+            ->get();
+
+        // Calculate total points
+        $totalPoints = $activities->sum(function ($activity) {
+            return $activity->service->points_number;
+        });
+
+        return response()->json([
+            'status' => 'success',
+            'data' => [
+                'total_points' => $totalPoints
+            ],
+        ], 200);
+    }
+    public function calculateTotalPoints(Request $request, $employee_id)
+    {
+        // Fetch all activities for the given employee
+        $employee = Employee::findOrFail($employee_id);
+        $activities = Activity::where('employee_id', $employee_id)
+            ->with('service')
+            ->get();
+
+        // Calculate total points
+        $totalPoints = $activities->sum(function ($activity) {
+            return $activity->service->points_number;
+        });
+        $employee->total_score = $totalPoints;
+        $employee->save();
+
+        return response()->json([
+            'status' => 'success',
+            'data' => [
+                'total_points' => $totalPoints
+            ],
+        ], 200);
+    }
+
 }

@@ -37,3 +37,6 @@ Route::post('login', [AuthController::class, 'login']);
 Route::middleware('auth:api')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 });
+
+Route::get('/employees/{employee}/calculate-points', [EmployeeController::class, 'calculatePoints']);
+Route::get('/employees/{employee_id}/total-points', [EmployeeController::class, 'calculateTotalPoints']);

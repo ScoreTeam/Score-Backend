@@ -21,6 +21,7 @@ class Employee extends Model
     public function mainImages()
     {
         return $this->hasMany(MainImage::class);
+        ///has only one but i can work with that
     }
 
     public function secondaryImages()
