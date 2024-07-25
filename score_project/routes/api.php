@@ -22,8 +22,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Route::resource('employees', EmployeeController::class);
-// Route::resource('services', ServiceController::class);
 
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::resource('employees', EmployeeController::class);
@@ -40,3 +38,4 @@ Route::middleware('auth:api')->group(function () {
 
 Route::get('/employees/{employee}/calculate-points', [EmployeeController::class, 'calculatePoints']);
 Route::get('/employees/{employee_id}/total-points', [EmployeeController::class, 'calculateTotalPoints']);
+Route::get('/employees/total-points/all-employees', [EmployeeController::class, 'calculateTotalPointsForAllEmployees']);

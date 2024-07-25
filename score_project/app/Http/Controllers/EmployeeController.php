@@ -102,13 +102,11 @@ class EmployeeController extends Controller
 
         $date = $request->input('date');
 
-        // Fetch activities for the given employee and date
         $activities = Activity::where('employee_id', $employee_id)
             ->whereDate('timing', $date)
             ->with('service')
             ->get();
 
-        // Calculate total points
         $totalPoints = $activities->sum(function ($activity) {
             return $activity->service->points_number;
         });
@@ -122,13 +120,11 @@ class EmployeeController extends Controller
     }
     public function calculateTotalPoints(Request $request, $employee_id)
     {
-        // Fetch all activities for the given employee
         $employee = Employee::findOrFail($employee_id);
         $activities = Activity::where('employee_id', $employee_id)
             ->with('service')
             ->get();
 
-        // Calculate total points
         $totalPoints = $activities->sum(function ($activity) {
             return $activity->service->points_number;
         });
@@ -140,6 +136,32 @@ class EmployeeController extends Controller
             'data' => [
                 'total_points' => $totalPoints
             ],
+        ], 200);
+    }
+
+
+    public function calculateTotalPointsForAllEmployees()
+    {
+        $employees = Employee::all();
+
+        foreach ($employees as $employee) {
+            $activities = Activity::where('employee_id', $employee->id)
+                ->with('service')
+                ->get();
+
+            $totalPoints = $activities->sum(function ($activity) {
+                return $activity->service->points_number;
+            });
+
+            $employee->total_score = $totalPoints;
+            $employee->save();
+        }
+
+        $sortedEmployees = Employee::orderBy('total_score', 'desc')->get();
+
+        return response()->json([
+            'status' => 'success',
+            'data' => $sortedEmployees
         ], 200);
     }
 
