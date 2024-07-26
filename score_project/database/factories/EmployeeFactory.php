@@ -17,9 +17,10 @@ class EmployeeFactory extends Factory
         return [
             'user_id' => User::factory()->create()->id,
             'nickname' => $this->faker->firstName,
+            'department' => $this->faker->randomElement(['HR', 'casher', 'cleaning', 'Marketing']),
             'phone_number' => $this->faker->phoneNumber,
             'total_score' => $this->faker->numberBetween(0, 1000),
-            // Add more attributes as needed
+            'birth_date' => $this->faker->date(),
         ];
     }
 }

@@ -18,6 +18,13 @@ class EmployeeController extends Controller
         ], 200);
     }
 
+    public function show(Employee $employee)
+    {
+        return response()->json([
+            'status' => 'success',
+            'data' => $employee,
+        ], 200);
+    }
     public function create()
     {
         return response()->json([
@@ -27,44 +34,44 @@ class EmployeeController extends Controller
     }
 
     public function store(Request $request)
-{
-    $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users,email',
-        'password' => 'required|string|min:8',
-        'nickname' => 'required|string|max:255',
-        'department' => 'required|string|max:255',
-        'phone_number' => 'required|string|regex:/^[0-9]{10}$/',
-        'birth_date' => 'required|date',
-    ]);
-
-    try {
-        $user = User::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'password' => bcrypt($request->input('password')),
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email',
+            'password' => 'required|string|min:8',
+            'nickname' => 'required|string|max:255',
+            'department' => 'required|string|max:255',
+            'phone_number' => 'required|string|regex:/^[0-9]{10}$/',
+            'birth_date' => 'required|date',
         ]);
 
-        $employee = Employee::create([
-            'nickname' => $request->input('nickname'),
-            'department' => $request->input('department'),
-            'phone_number' => $request->input('phone_number'),
-            'birth_date' => $request->input('birth_date'),
-            'user_id' => $user->id,
-        ]);
+        try {
+            $user = User::create([
+                'name' => $request->input('name'),
+                'email' => $request->input('email'),
+                'password' => bcrypt($request->input('password')),
+            ]);
 
-        return response()->json([
-            'status' => 'success',
-            'data' => $employee,
-            'message' => 'Employee created successfully.'
-        ], 201);
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Error creating employee: ' . $e->getMessage()
-        ], 500);
+            $employee = Employee::create([
+                'nickname' => $request->input('nickname'),
+                'department' => $request->input('department'),
+                'phone_number' => $request->input('phone_number'),
+                'birth_date' => $request->input('birth_date'),
+                'user_id' => $user->id,
+            ]);
+
+            return response()->json([
+                'status' => 'success',
+                'data' => $employee,
+                'message' => 'Employee created successfully.'
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Error creating employee: ' . $e->getMessage()
+            ], 500);
+        }
     }
-}
 
     public function edit(Employee $employee)
     {
@@ -177,7 +184,10 @@ class EmployeeController extends Controller
             $employee->save();
         }
 
-        $sortedEmployees = Employee::orderBy('total_score', 'desc')->get();
+        $sortedEmployees = Employee::select('nickname', 'total_score')
+            ->orderBy('total_score', 'desc')
+            ->get();
+
 
         return response()->json([
             'status' => 'success',

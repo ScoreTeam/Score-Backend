@@ -23,7 +23,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::middleware(['auth', 'admin'])->group(function () {
+Route::middleware(['auth:api', 'admin'])->group(function () {
     Route::resource('employees', EmployeeController::class);
     Route::resource('services', ServiceController::class);
 });
