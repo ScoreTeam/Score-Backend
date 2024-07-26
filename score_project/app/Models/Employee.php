@@ -10,7 +10,12 @@ class Employee extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nickname', 'phone_number', 'total_score',
+        'user_id',
+        'nickname',
+        'department',
+        'phone_number',
+        'total_score',
+        'birth_date',
     ];
 
     public function user()
@@ -21,6 +26,7 @@ class Employee extends Model
     public function mainImages()
     {
         return $this->hasMany(MainImage::class);
+        //has only one but i can work with that
     }
 
     public function secondaryImages()

@@ -15,10 +15,14 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('nickname');
+            $table->string('department');
             $table->string('phone_number');
-            $table->integer('total_score');
+            $table->integer('total_score')->default(0);
+            $table->date('birth_date');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
