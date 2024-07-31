@@ -21,7 +21,7 @@ class ActivityFactory extends Factory
         return [
             'employee_id' => $this->faker->randomElement($employeeIds),
             'service_id' => $this->faker->randomElement($serviceIds),
-            'timing' => $this->faker->dateTimeBetween('-1 week', 'now'),
+            'timing' => $this->faker->dateTimeBetween('-3 month', 'now'),
             'duration' => $this->faker->numberBetween(5, 12),
             // Add more attributes as needed
         ];

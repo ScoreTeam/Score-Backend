@@ -16,13 +16,18 @@ return new class extends Migration
         Schema::create('employees', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('nickname');
             $table->string('department');
             $table->string('phone_number');
+            $table->string('address');
+            $table->time('shift_starts');
+            $table->time('shift_ends');
+            $table->text('info_description');
             $table->integer('total_score')->default(0);
             $table->date('birth_date');
-            $table->timestamps();
+            $table->integer('salary');
+            $table->string('position');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

@@ -30,12 +30,14 @@ Route::middleware(['auth:api', 'admin'])->group(function () {
 
 
 Route::post('register', [AuthController::class, 'register']);
-Route::post('login', [AuthController::class, 'login']);
+Route::post('login', [AuthController::class, 'login'])->name("login");
 
 Route::middleware('auth:api')->group(function () {
     Route::post('logout', [AuthController::class, 'logout']);
 });
 
-Route::get('/employees/{employee}/calculate-points', [EmployeeController::class, 'calculatePoints']);
+Route::get('/employees/{employee_id}/calculate-points', [EmployeeController::class, 'calculatePoints']);
 Route::get('/employees/{employee_id}/total-points', [EmployeeController::class, 'calculateTotalPoints']);
 Route::get('/employees/total-points/all-employees', [EmployeeController::class, 'calculateTotalPointsForAllEmployees']);
+Route::post('/employees/{employee_id}/calculate-points/monthly', [EmployeeController::class, 'calculateMonthlyPoints']);
+Route::post('/employees/total-points/all-employees/monthly', [EmployeeController::class, 'calculateMonthlyPointsForAll']);

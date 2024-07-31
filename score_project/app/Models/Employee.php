@@ -11,9 +11,14 @@ class Employee extends Model
 
     protected $fillable = [
         'user_id',
-        'nickname',
         'department',
         'phone_number',
+        'address',
+        'shift_starts',
+        'shift_ends',
+        'info_description',
+        'salary',
+        'position',
         'total_score',
         'birth_date',
     ];
@@ -23,15 +28,24 @@ class Employee extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function mainImages()
-    {
-        return $this->hasMany(MainImage::class);
-        //has only one but i can work with that
-    }
+    // public function mainImages()
+    // {
+    //     return $this->hasMany(MainImage::class);
+    //     //has only one but i can work with that
+    // }
 
-    public function secondaryImages()
+    // public function secondaryImages()
+    // {
+    //     return $this->hasMany(SecondaryImage::class);
+    // }
+
+    public function employeeDailyPoints()
     {
-        return $this->hasMany(SecondaryImage::class);
+        return $this->hasMany(EmployeeDailyPoint::class);
+    }
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
     }
 
     public function activities()
