@@ -386,5 +386,10 @@ class EmployeeController extends Controller
         ], 200);
     }
 
+    public function getAllEmployeesNamesAndIds()
+    {
+        $employees = Employee::select('id', 'name')->get();
+        return $employees;
+    }
 }
 

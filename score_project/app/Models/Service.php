@@ -10,7 +10,7 @@ class Service extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name', 'description', 'points_number', 'duration_minutes',
+        'name', 'description', 'points_number', 'time_threshold',
     ];
 
     public function employees()

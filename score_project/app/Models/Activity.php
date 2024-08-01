@@ -10,7 +10,7 @@ class Activity extends Model
     use HasFactory;
 
     protected $fillable = [
-        'employee_id', 'service_id', 'timing', 'duration',
+        'employee_id', 'service_id', 'day_date', 'duration',
     ];
 
     public function employee()
