@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('secondary_images', function (Blueprint $table) {
+        Schema::create('employee_daily_points', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('employee_id');
-            $table->string('image_url');
-            $table->string('type');
+            $table->integer("points");
+            $table->date("day_date");
             $table->timestamps();
-
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('secondary_images');
+        Schema::dropIfExists('employee_daily_points');
     }
 };

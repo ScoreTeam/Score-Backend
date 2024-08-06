@@ -18,10 +18,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
         'is_admin',
+        'profile_photo',
     ];
 
     /**
@@ -43,10 +45,6 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function admin()
-    {
-        return $this->hasOne(Admin::class);
-    }
 
     public function employee()
     {

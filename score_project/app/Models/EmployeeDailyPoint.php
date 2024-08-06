@@ -5,12 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class EmployeeService extends Model
+class EmployeeDailyPoint extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'employee_id', 'service_id',
+        'employee_id',
+        'points',
+        'day_date',
     ];
 
     public function employee()
@@ -18,8 +20,4 @@ class EmployeeService extends Model
         return $this->belongsTo(Employee::class);
     }
 
-    public function service()
-    {
-        return $this->belongsTo(Service::class);
-    }
 }

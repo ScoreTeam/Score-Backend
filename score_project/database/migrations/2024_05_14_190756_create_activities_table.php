@@ -17,9 +17,8 @@ return new class extends Migration
             $table->id('activity_id');
             $table->unsignedBigInteger('employee_id');
             $table->unsignedBigInteger('service_id');
-            $table->dateTime('timing');
+            $table->date('day_date');
             $table->integer('duration');
-            $table->string('status')->default('pending'); // Add status column
             $table->timestamps();
 
             $table->foreign('employee_id')->references('id')->on('employees')->onDelete('cascade');

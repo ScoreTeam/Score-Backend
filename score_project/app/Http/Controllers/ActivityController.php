@@ -2,34 +2,69 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use Illuminate\Http\Request;
 
 class ActivityController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
-        $activities = Activity::with(['employee', 'service'])->get();
-        return response()->json([
-            'status' => 'success',
-            'data' => $activities,
-        ], 200);
+        $activities = Activity::all();
+        return response()->json($activities);
     }
 
-    public function acknowledge(Activity $activity)
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
     {
-        $activity->update(['status' => 'acknowledged']);
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Activity acknowledged successfully.'
-        ], 200);
+        $validatedData = $request->validate([
+            'employee_id' => 'required|exists:employees,id',
+            'service_id' => 'required|exists:services,id',
+            'day_date' => 'required|date',
+            'duration' => 'required|integer',
+        ]);
+
+        $activity = Activity::create($validatedData);
+        return response()->json($activity, 201);
     }
 
-    public function deny(Activity $activity)
+    /**
+     * Display the specified resource.
+     */
+    public function show($id)
     {
-        $activity->update(['status' => 'denied']);
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Activity denied successfully.'
-        ], 200);
+        $activity = Activity::findOrFail($id);
+        return response()->json($activity);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $validatedData = $request->validate([
+            'employee_id' => 'required|exists:employees,id',
+            'service_id' => 'required|exists:services,id',
+            'day_date' => 'required|date',
+            'duration' => 'required|integer',
+        ]);
+
+        $activity = Activity::findOrFail($id);
+        $activity->update($validatedData);
+        return response()->json($activity);
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
+    {
+        $activity = Activity::findOrFail($id);
+        $activity->delete();
+        return response()->json(null, 204);
     }
 }

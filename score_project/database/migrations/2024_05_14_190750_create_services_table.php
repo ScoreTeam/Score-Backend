@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('points_number');
-            $table->integer('duration_minutes');
+            $table->integer('time_threshold');
             $table->timestamps();
         });;
     }

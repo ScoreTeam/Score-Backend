@@ -16,7 +16,7 @@ class ServiceFactory extends Factory
             'name' => $this->faker->word,
             'description' => $this->faker->sentence,
             'points_number' => $this->faker->numberBetween(1, 100),
-            'duration_minutes' => $this->faker->numberBetween(3, 20),
+            'time_threshold' => $this->faker->numberBetween(3, 20),
             // Add more attributes as needed
         ];
     }
