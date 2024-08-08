@@ -1,10 +1,10 @@
 {
 	"info": {
-		"_postman_id": "6d854f59-91da-4da6-9613-34e8b49f9cbd",
+		"_postman_id": "05c1f012-5bb6-4463-a973-7653a2cb17cb",
 		"name": "score",
 		"description": "# 🚀 Get started here\n\nThis template guides you through CRUD operations (GET, POST, PUT, DELETE), variables, and tests.\n\n## 🔖 **How to use this template**\n\n#### **Step 1: Send requests**\n\nRESTful APIs allow you to perform CRUD operations using the POST, GET, PUT, and DELETE HTTP methods.\n\nThis collection contains each of these [request](https://learning.postman.com/docs/sending-requests/requests/) types. Open each request and click \"Send\" to see what happens.\n\n#### **Step 2: View responses**\n\nObserve the response tab for status code (200 OK), response time, and size.\n\n#### **Step 3: Send new Body data**\n\nUpdate or add new data in \"Body\" in the POST request. Typically, Body data is also used in PUT request.\n\n```\n{\n    \"name\": \"Add your name in the body\"\n}\n\n ```\n\n#### **Step 4: Update the variable**\n\nVariables enable you to store and reuse values in Postman. We have created a [variable](https://learning.postman.com/docs/sending-requests/variables/) called `base_url` with the sample request [https://postman-api-learner.glitch.me](https://postman-api-learner.glitch.me). Replace it with your API endpoint to customize this collection.\n\n#### **Step 5: Add tests in the \"Tests\" tab**\n\nTests help you confirm that your API is working as expected. You can write test scripts in JavaScript and view the output in the \"Test Results\" tab.\n\n<img src=\"https://content.pstmn.io/b5f280a7-4b09-48ec-857f-0a7ed99d7ef8/U2NyZWVuc2hvdCAyMDIzLTAzLTI3IGF0IDkuNDcuMjggUE0ucG5n\">\n\n## 💪 Pro tips\n\n- Use folders to group related requests and organize the collection.\n- Add more [scripts](https://learning.postman.com/docs/writing-scripts/intro-to-scripts/) in \"Tests\" to verify if the API works as expected and execute workflows.\n    \n\n## 💡Related templates\n\n[API testing basics](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9a37a28-055b-49cd-8c7e-97494a21eb54&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[API documentation](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=e9c28f47-1253-44af-a2f3-20dce4da1f18&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)  \n[Authorization methods](https://go.postman.co/redirect/workspace?type=personal&collectionTemplateId=31a9a6ed-4cdf-4ced-984c-d12c9aec1c27&sourceTemplateId=ddb19591-3097-41cf-82af-c84273e56719)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "27654534"
+		"_exporter_id": "24849161"
 	},
 	"item": [
 		{
@@ -70,7 +70,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiNzc1MTE1YjdhOTk0OWQ4ZDM2ZmUyZWQzMTk4MzMyMGIzZWY0YjRiMmVjODMxMDRjYWY0YmM4Nzc3MzMwNjc2MjQ2YjRiMTE0ODVmYWRkM2IiLCJpYXQiOjE3MTU5MzQ5NTAuNjI4MzgyLCJuYmYiOjE3MTU5MzQ5NTAuNjI4Mzg4LCJleHAiOjE3NDc0NzA5NTAuNjE4MzU3LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.L88neqEilVJAe_hd1VGTBs-JCGXP9Y585kcdkV3bmY0pEbNNsb8wzZxwWZhwQDOgiGMm1f8AhnCqyUlX7SVeIW4t2bZI5YlHvQF3B4KB8cMkTSySeVr0vgNgRFI_tM7FOI1PBUprSYOGCSh47Cg_Cz8zBdtT9L_AZ3ykKQL5XzW156RZz3tWnxMhw29W_hp61PszEED2veZ6iZoqY9UB8QXN8VYy7iVIIFWcFBr8ObLftT18PFBZyQv7jXx0sb-Enb31qQzUSh3UkqQ_x3QC9rsgY46KJZxYMd-rqxp3zEHtl5npNDzyiMy1LJ38Ixh3jlrfCnW3PRKzhR0jrVB35ZkyATjQ4k0k0AZ4cywOExx0mvu2vAAdik8E3cF7gzHJar44h3nCFkShRtWoEqINnEWvmhEXRhthZ1xicX4v53gmD62XdniA2cIRbnucbwwManeGBA47kqXYa2i_lSiitGBoXfE0xa6vDQ7Ftkov2X9MKlddp8KlPgvqRVoWFeYeQUJXCGS8p0YW6b3ZIFPds_ffHqHY_m06gjC965jvIAd4d67Z69wh2OzhNl24RdpJU23Jg04mdHlCDQfAvxHjz2VxvBjaOdWiZBj5r1OmdrP6m26D0LGGX6LZlnF0ViLXUtk97h21c0F4c0d5QVGSsjanAFyrV2jhAYpthddiyxA",
+									"value": "your-token-here",
 									"type": "string"
 								}
 							]
@@ -97,7 +97,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiYjAxZmRkZjc5MWU0ZTlmNzNjYTk2ZWZlZTZjYTM4NGRmZDIzYzhkZmZiZTY4YjAyMWY2M2ZiNmUwMjU0Y2JkZTQ4OGEyMWViYmZiZjVkOTQiLCJpYXQiOjE3MTU5MzUxMzEuODYxNDk0LCJuYmYiOjE3MTU5MzUxMzEuODYxNDk4LCJleHAiOjE3NDc0NzExMzEuODM2OTQ2LCJzdWIiOiIxIiwic2NvcGVzIjpbXX0.CydXUdiQ7Y8IQrdeQzJjKKvv5IugNHf4LUsxUZqAdKZgltmdgbfdjaUj9dVR8if8R8ST2eRkb9gMeNv17Z2nZkRg9BhIBHGsyygcZg_Sa_ckWM_mMz2KOb4jMpLJDFb9fgr1I4iulwElbvQvzoLWzFuIdw-2vpgZu0JtwFMY24QQ7bSxl2x9wtnIxjPqEsc3nWyPQN_DOdPnmaTq_39J5LLqTAG97BqWNc3Yoem_yn-GH4xWxD8V9R6BFsBJ0r3FIHMmSSLFtwitZxz-7r5nhc1OzZqQqI0Hyx0Yt01j1YB26cJ1b0aJSvWcrLBlNX8fy_ZKQEZEtRId9pc1WZ7MiUhL5bVfl2vj7k-rP5LevxQBWEwi5M4y7EZHV_y2bRdgeBEZGo3wJEjpVoIUJ0DmgbB9K1mFpt5XGTDabLbIMJRyD1kGli35en1Df2JfuA74LQGxWgl-Xdei_SxWDAs5V97RaAfh087qCRzmenUYMHhQC_j6nTQW8cy-ja_QZza-gg9MTiQBLbjETq-5c1ciEgxnzlOLkMzjM1H7HU22cL9OALgGSCLfvfqbj12egqqeMLHpzEToWifGcOCOpMKMJ9o6NxYdLPY1valqNKv3xAYcYSwqksh9pXAv7UzI13KiU9cOn_46ytbs-p72OQgN4E8Hx0J9YfU81ANawOr1jXo",
+									"value": "your-token-here",
 									"type": "string"
 								}
 							]
@@ -111,6 +111,37 @@
 							],
 							"path": [
 								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Service",
+			"item": [
+				{
+					"name": "STORE_SERVICE_INFO",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Service Name\",\n    \"description\": \"Service Description\",\n    \"points_number\": 10,\n    \"time_threshold\": 6\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/services",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"services"
 							]
 						}
 					},
