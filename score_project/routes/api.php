@@ -35,6 +35,10 @@ Route::middleware(['auth:api', 'admin'])->group(function () {
 
     Route::resource('services', ServiceController::class);
 
+    //NOUR
+    Route::post('/services', [ServiceController::class, 'store']);
+
+
     Route::get('/employees/{employee_id}/calculate-points', [EmployeeController::class, 'calculatePoints']);
 
     Route::get('/employees/{employee_id}/total-points', [EmployeeController::class, 'calculateTotalPoints']);
@@ -47,3 +51,7 @@ Route::middleware(['auth:api', 'admin'])->group(function () {
 });
 
 Route::get('/test1', [EmployeeController::class, 'getAllEmployeesNamesAndIds'])->name("get All Employees Names And Ids");
+
+
+//NOUR
+Route::post('/services', [ServiceController::class, 'store']);

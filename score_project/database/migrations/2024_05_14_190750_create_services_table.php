@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->integer('points_number');
-            $table->integer('time_threshold');
+            $table->integer('time_threshold'); // min_time_spent in seconds or minutes
             $table->timestamps();
         });;
     }

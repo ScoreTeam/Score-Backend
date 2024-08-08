@@ -27,10 +27,10 @@ class ServiceController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'description' => 'required|string',
-            'points_number' => 'required|integer',
-            'duration_minutes' => 'required|integer',
+            'name' => 'nullable|string|max:255',
+            'description' => 'nullable|string',
+            'points_number' => 'nullable|integer|min:0', 
+            'time_threshold' => 'required|integer|min:0', // Validation rule for min_time_spent
         ]);
 
         try {
