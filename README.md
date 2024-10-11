@@ -2,9 +2,7 @@
 
 this version is very out of date and does not work with the actual project 
 
-if you are a former member of the team and by any chance you have read this message and you want the latest verion of this repo
-
-please contact me at https://t.me/HamzaMoharib
+if you are a former member of the team and by any chance you have read this message and you want the latest verion of this repo please contact me at https://t.me/HamzaMoharib
 
 # Enter these commands before the first run
 
