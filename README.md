@@ -1,3 +1,7 @@
+# Notice :
+this version is very out of date and does not work with the actual project 
+if by any chance you read this message and you want the latest verion of this repo , please contact me at https://t.me/HamzaMoharib
+
 # Enter these commands before the first run
 
 ```sh
